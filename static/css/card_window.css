@@ -1,0 +1,135 @@
+/* General card grid styling */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Increased min width */
+  grid-gap: 1rem;
+  padding: 1rem;
+  background-color: #01274E;
+}
+
+.card {
+  background-color: rgba(255, 165, 0, 0.9); /* Opaque orange background */
+  color: #fff; /* White text */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+  width: 100%; /* Ensure the card stretches to fill the grid column */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Modal styling */
+.card-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+
+
+
+
+
+
+
+
+
+
+.card-modal-content {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  background-color: #fefefe;
+  margin: 10% auto; /* Centered in the viewport */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Control the width of the modal */
+  border-radius: 10px;
+}
+
+.card-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 20px 20px; /* Padding on the sides */
+}
+
+.card-modal-close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card-modal-close:hover,
+.card-modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card-modal-title {
+  margin-bottom: 20px; /* Space between title and information */
+}
+
+.card-modal-body {
+  display: flex;
+  flex-direction: row; /* Layout children in a row */
+  justify-content: space-between; /* Space out the children evenly */
+}
+
+.card-modal-image-split {
+  flex: 0 0 40%; /* Do not grow or shrink, initial size 40% */
+  padding-left: 20px; /* Indent on the left */
+}
+
+.card-modal-info-container {
+  display: flex;
+  flex: 1; /* Take up remaining space */
+  justify-content: space-between; /* Space between info columns */
+}
+
+.card-modal-info-split {
+  flex: 1; /*Equal Distribution*/
+}
+
+.card-modal-name {
+  flex: 1; /* Allows title to grow and fill space */
+  white-space: nowrap; /* Prevents the title from wrapping */
+  overflow: hidden; /* Hides any overflow */
+  text-overflow: ellipsis; /* Adds an ellipsis to truncated text */
+}
+
+.card-modal-image-split {
+  flex: 0 0 40%; /* Do not grow or shrink, initial size 40% */
+  width: 300px;
+  padding-left: 20px; /* Indent on the left */
+  padding-right: 20px; /* Add space between the image and the information columns */
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .card-modal-content {
+    width: 90%; /* Wider modal on smaller screens */
+    margin: 10% auto; /* Centered in the viewport */
+  }
+
+  .card-modal-body {
+    flex-direction: column; /* Stack information vertically on small screens */
+  }
+
+  .card-modal-image {
+    margin-bottom: 1rem; /* Space between image and info on small screens */
+    max-width: 100%; /* Full width image on small screens */
+  }
+}

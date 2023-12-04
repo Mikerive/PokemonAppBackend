@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéMart Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Orbitron, sans-serif;
+            background-image: url('static/assets/registerBackground.png');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+      
+        .login-logo {
+            max-width: 250px;
+            max-height: 250px; 
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -150px; 
+            z-index: 10;
+        }
+      
+      .registration-container {
+          font-family: Orbitron, sans-serif;
+          background-color: rgba(96, 128, 152, 0.7);
+          padding: 20px;
+          border-radius: 10px;
+          width: 400px; 
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box; 
+      }
+
+      .registration-input {
+          font-family: Orbitron, sans-serif;
+          display: block;
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border-radius: 15px;
+          border: 1px solid #ddd;
+          box-sizing: border-box; 
+      }
+
+        .registration-button {
+           font-family: Orbitron, sans-serif;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f03c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .registration-button:hover {
+            background-color: #d82b2b;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+      <a href="/homepage">
+          <img src="static/assets/pokemartlogo.png" alt="PokéMart Logo" class="login-logo">
+      </a>
+        <h2>Sign up and show off all your best cards!</h2>
+      <form method="post" action="/register">
+          <input type="text" class="registration-input" name="username" placeholder="username">
+          <input type="text" class="registration-input" name="email" placeholder="email">
+          <input type="password" class="registration-input" name="password" placeholder="password">
+          <input type="password" class="registration-input" name="retype_password" placeholder="retype password">
+          <button type="submit" class="registration-button">REGISTER</button>
+      </form>
+        <p>Already have an account? <a href="/login">Click here to login.</a></p>
+    </div>
+</body>
+</html>

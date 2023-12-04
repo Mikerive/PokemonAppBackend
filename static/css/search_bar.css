@@ -1,0 +1,40 @@
+/* Base Search form styling */
+.search-form {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+  width: 500px;
+}
+
+.search-form input[type="text"] {
+  padding: 0.5rem;
+  border: 2px solid #01274E;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 250px; /* Fixed width, can be adjusted */
+  padding-right: 3rem; /* Make room for the search icon */
+}
+
+.search-form button {
+  padding: 0.5rem;
+  background-color: #01274E;
+  color: #fff;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-form button:hover {
+  background-color: #FFA500;
+}

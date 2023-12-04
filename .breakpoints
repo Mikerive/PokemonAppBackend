@@ -1,0 +1,28 @@
+{
+  "files": {
+    "component/card_window.html": [
+      {
+        "id": "fcf3052c-4641-471d-83c9-b35797d0ad89",
+        "line": 38,
+        "version": 187,
+        "index": 1019
+      }
+    ],
+    "dao/card_dao.py": [
+      {
+        "id": "17fcd236-4edb-401c-97d6-baef12a10651",
+        "line": 11,
+        "version": 2653,
+        "index": 197
+      }
+    ],
+    "main.py": [
+      {
+        "id": "7c3ff19d-4967-4e7b-b94d-2f8fde69e8a2",
+        "line": 1,
+        "version": 2684,
+        "index": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>PokéMart Login</title>
+    <style>
+        body {
+            font-family: Orbitron, sans-serif;
+            background-image: url('static/assets/loginBackground.png');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+      .login-container {
+          background-color: rgba(96, 128, 152, 0.7);
+          padding: 20px;
+          border-radius: 10px;
+          width: 300px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative; 
+          z-index: 1;
+      }
+
+        .login-logo {
+          max-width: 250px;
+          max-height: 250px; 
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: -150px; 
+          z-index: 10;
+        }
+
+        .login-input {
+            font-family: Orbitron, sans-serif;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .login-button {
+            font-family: Orbitron, sans-serif;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f03c3c;
+            color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #d82b2b;
+        }
+
+        .login-button-link {
+          text-decoration: none;
+          color: inherit;
+          display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+      <a href="/homepage">
+          <img src="static/assets/pokemartlogo.png" alt="PokéMart Logo" class="login-logo">
+      </a>
+        <input type="text" class="login-input" placeholder="username or email">
+        <input type="password" class="login-input" placeholder="password">
+        <button type="submit" class="login-button" onclick="window.location.href='/homepage'">LOGIN</button>
+        <p>Don't have an account? <a href="/register">Sign up</a></p>
+    </div>
+</body>
+</html>

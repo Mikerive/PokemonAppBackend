@@ -1,0 +1,64 @@
+<!-- Card Window -->
+<link rel="stylesheet" href="static/css/card_window.css">
+
+<style>
+  .card {
+    background-color: #E66A27;
+  }
+  
+  .card-grid {
+    background-color: #01274E;
+  }
+  
+  .card-modal-content {
+    background-color: white;
+  }
+}</style>
+
+<div>
+  <ul id="card-results" class="card-grid">
+    <!-- Cards dynamically created here -->
+  </ul>
+</div>
+
+<div id="my-modal" class="card-modal">
+  <div class="card-modal-content">
+    <div class="card-modal-header">
+      <h1 class="card-modal-name"></h1>
+      <span class="card-modal-close" onclick="closeModal()">&times;</span>
+    </div>
+    <div class="card-modal-body">
+      <div class="card-modal-image-split">
+        <!-- Image on the left -->
+        <img class="card-modal-image" src="#" alt="Card Image">
+      </div>
+      <div class="card-modal-info-container">
+        <!-- Information in two columns -->
+        <div class="card-modal-info-split">
+          <p><strong>Supertype:</strong> <span class="card-modal-supertype"></span></p>
+          <p><strong>Level:</strong> <span class="card-modal-level"></span></p>
+          <p><strong>HP:</strong> <span class="card-modal-hp"></span></p>
+          <p><strong>Set:</strong> <span class="card-modal-set"></span></p>
+          <p><strong>Artist:</strong> <span class="card-modal-artist"></span></p>
+        </div>
+    
+        <div class="card-modal-info-split">
+          <p><strong>Rarity:</strong> <span class="card-modal-rarity"></span></p>
+          <p><strong>Description:</strong> <span class="card-modal-flavortext"></span></p>
+          <p><strong>Market Price:</strong> <span class="card-modal-price"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="static/js/card_window.js"></script>
+<script type="text/javascript">
+  var cardsData = {{ cards | tojson | safe }};
+  console.log('cardsData:', cardsData); // This line will print the cardsData to the console
+  window.addEventListener('load', function() {
+    displayCardGrid(cardsData);
+  });
+</script>
+  
