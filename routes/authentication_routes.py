@@ -36,3 +36,11 @@ def login():
   session['user_id'] = user.id  # Create a session for the authenticated user
 
   return jsonify({"message": "Login successful"}), 200
+
+
+#https://pokemonappbackend.michaelrivera15.repl.co/auth/logout
+@auth_bp.route('/logout', methods=['POST'])
+def logout():
+  # Clear all data from the session
+  session.clear()
+  return jsonify({"message": "Logout successful"}), 200

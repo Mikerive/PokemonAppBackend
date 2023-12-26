@@ -22,8 +22,8 @@ class MarketListingDAO:
   def get_listing_by_id(self, id):
     return self.session.query(MarketListing).filter_by(listing_id=id).first()
 
-  def update_listing(self, qNum, data):
-    listing = self.session.query(MarketListing).filter_by(qNum=qNum).first()
+  def update_listing(self, listing_id, data):
+    listing = self.session.query(MarketListing).filter_by(listing_id=listing_id).first()
     if listing:
       for key, value in data.items():
         if hasattr(listing, key):
@@ -31,7 +31,7 @@ class MarketListingDAO:
       self.session.commit()
 
   def delete_listing(self, qNum):
-    listing = self.session.query(MarketListing).filter_by(qNum=qNum).first()
+    listing = self.session.query(MarketListing).filter_by(listing_id=qNum).first()
     if listing:
       self.session.delete(listing)
       self.session.commit()

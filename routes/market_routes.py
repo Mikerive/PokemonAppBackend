@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request, session
 from service.market_listing_service import MarketListingService
+from service.user_service import UserService
 
 #https://pokemonappbackend.michaelrivera15.repl.co/market
 market_bp = Blueprint('market', __name__)
@@ -20,7 +21,21 @@ market_bp = Blueprint('market', __name__)
 @market_bp.route("/<card_id>")
 def list_all_market_listings_by_card(card_id):
   listings = MarketListingService.list_all_market_listings_by_card(card_id)
-  return jsonify(listings)
+  cards = []
+  for listing in listings:
+      user = UserService.get_user(listing.userID)
+      # Include the username in the listing's dictionary
+      listing_dict = {
+          "listing_id": listing.listing_id,
+          "userID": listing.userID,
+          "cardID": listing.cardID,  
+          "picture": listing.picture,
+          "price": listing.price,
+          "quality": listing.quality,
+          "username": user.username,  # Include the username
+      }
+      cards.append(listing_dict)
+  return jsonify(cards)
 
 
 #https://pokemonappbackend.michaelrivera15.repl.co/market/add

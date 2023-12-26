@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request, session
 from service.market_transaction_service import MarketTransactionService
+from service.card_service import CardService
 
 transaction_bp = Blueprint('transaction', __name__)
 
@@ -21,9 +22,21 @@ def finish_transaction():
     # Retrieve cart items from the session
     cart_items = session['cart']
 
-    # Create a transaction using the MarketTransactionService
-    transaction_id = MarketTransactionService.create_transaction(
-        user_id=user_id, listings=cart_items)
+    # Error with database CURRENT_TIMESTAMP
+    # # Create a transaction using the MarketTransactionService
+    # transaction_id = MarketTransactionService.create_transaction(
+    #     user_id=user_id, listings=cart_items)
+
+    # Adding cards to user's collection
+    for cart_item in cart_items:
+        card_id = cart_item['card_id']
+
+        # Return error if card does not exist
+        card_service = CardService()
+        if not card_service.check_card_exist(card_id):
+            return jsonify({"message": f"Card {card_id} does not exist"}), 400
+
+        CardService.add_card_to_user_collection(user_id, card_id)
 
     # Clear the cart after successful transaction
     session['cart'] = []
@@ -31,7 +44,7 @@ def finish_transaction():
 
     return jsonify({
         "success": "Transaction completed",
-        "transaction_id": transaction_id
+        # "transaction_id": transaction_id,
     }), 200
 
   except Exception as e:

@@ -36,7 +36,7 @@ class MarketListing(Base):
 
   def to_dict(self):
     return {
-        'qNum': self.qNum,
+        'listing_id': self.listing_id,
         'userID': self.userID,
         'cardID': self.cardID,
         'picture': self.picture,

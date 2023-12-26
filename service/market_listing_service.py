@@ -79,9 +79,7 @@ class MarketListingService:
     session = DatabaseEngine().get_session()
     listing = MarketListingService.get_listing_details(listing_id)
     if listing:
-      for key, value in data.items():
-        setattr(listing, key, value)
-      session.commit()
+      MarketListingDAO(session).update_listing(listing_id, data)
     session.close()
 
   @staticmethod
@@ -114,6 +112,13 @@ class MarketListingService:
     session = DatabaseEngine().get_session()
     listings = session.query(MarketListing).filter_by(
         cardID=card_id, quality=quality_enum).all()
+    session.close()
+    return listings
+
+  @staticmethod
+  def get_all_user_listings(user_id):
+    session = DatabaseEngine().get_session()
+    listings = session.query(MarketListing).filter_by(userID=user_id).all()
     session.close()
     return listings
 
